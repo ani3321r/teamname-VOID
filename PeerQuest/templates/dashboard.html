@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="dashboard">
+    <div class="side-panel">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Pods</a></li>
+            <li><a href="#">Leaderboard</a></li>
+            <li><a href="#">Battles</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Welcome, {{ username }}</h1>
+        <h3>Your Pods:</h3>
+        <ul>
+            {% for pod in pods %}
+            <li>
+                <strong>{{ pod.name }}</strong> - Role: {{ pod.role }} - Progress: {{ pod.progress }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
