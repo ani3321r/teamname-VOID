@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gd.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = '0123456789'
 
@@ -109,6 +109,9 @@ def creat_grp():
         return redirect(url_for('dashboard'))
     return render_template('creat_grp.html')
 
+@app.route('/space_shooter')
+def space_shooter():
+    return render_template("space_shooter.html")
 
 
 
