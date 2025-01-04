@@ -4,29 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
-    <form method="POST" action="{{url_for('creat_grp')}}">
-                <label for="grp_name">group name:</label>
-                <input type="text" id="grp_name" name="grp_name" required>
-                
-                <label for="user1">User1:</label>
-                <input type="text" id="user1" name="user1" required>
-                
-                <label for="user2">user2:</label>
-                <input type="text" id="user2" name="user2" >
+<body class="create-pod">
+    <div class="create-pod-container">
+        <h2>Create Your Pod</h2>
+        
+        <form method="POST" action="{{ url_for('creat_grp') }}">
+            <!-- Pod Name Section -->
+            <div class="form-section">
+                <label for="pod-name">Pod Name:</label>
+                <input type="text" id="pod-name" name="grp_name" placeholder="Enter pod name" required />
+            </div>
 
-                <label for="user3">User3:</label>
-                <input type="text" id="user3" name="user3" >
-                
-                <label for="user4">user4:</label>
-                <input type="text" id="user4" name="user4" >
+            <!-- Number of Players Section -->
+            <div class="form-section">
+                <label for="num-players">Number of Players (Max 5):</label>
+                <input type="number" id="num-players" name="num_players" min="1" max="5" value="1" required />
+            </div>
 
-                <label for="user5">User5:</label>
-                <input type="text" id="user5" name="user5" >
-                
-                <button type="submit">Register</button>
-            
-    </form>
+            <!-- Dynamically Generated Player Username Fields -->
+            <div id="player-usernames">
+                <label for="user1">Player 1 Username:</label>
+                <input type="text" id="user1" name="user1" placeholder="Enter Player 1's username" required />
+            </div>
+
+            <!-- Submit Button to Create Pod -->
+            <button type="submit">Create Pod</button>
+        </form>
+    </div>
+
+    <script>
+        // Dynamically add username input fields based on the selected number of players
+        document.getElementById('num-players').addEventListener('change', function () {
+            const numPlayers = parseInt(this.value); // Get number of players
+            const playerUsernamesContainer = document.getElementById('player-usernames');
+
+            // Clear existing player fields
+            playerUsernamesContainer.innerHTML = '';
+
+            // Add new player username input fields
+            for (let i = 1; i <= numPlayers; i++) {
+                const label = document.createElement('label');
+                label.setAttribute('for', `user${i}`);
+                label.textContent = `Player ${i} Username:`;
+
+                const input = document.createElement('input');
+                input.setAttribute('type', 'text');
+                input.setAttribute('id', `user${i}`);
+                input.setAttribute('name', `user${i}`);
+                input.setAttribute('placeholder', `Enter Player ${i}'s username`);
+                input.required = true;
+
+                playerUsernamesContainer.appendChild(label);
+                playerUsernamesContainer.appendChild(input);
+            }
+        });
+    </script>
 </body>
 </html>
