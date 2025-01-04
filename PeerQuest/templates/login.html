@@ -16,14 +16,18 @@
         </ul>
     </nav>
 
-    <div class="login-container">
+    <main class="login-container">
         <h2>Login to PeerQUEST</h2>
-        <form action="/dashboard">
-            <input type="text" placeholder="Enter username" required>
-            <input type="password" placeholder="Enter password" required>
-            <button type="submit" class="btn">Login</button>
+        <form method="POST">
+            <label for="username_or_email">Username or Email:</label>
+            <input type="text" id="username_or_email" name="username_or_email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
         </form>
         <p>New to PeerQUEST? <a href="/register">Register here</a></p>
-    </div>
+    </main>
 </body>
 </html>
