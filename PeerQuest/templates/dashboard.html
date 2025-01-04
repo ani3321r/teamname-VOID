@@ -23,6 +23,12 @@
                 <h3>Create Pod</h3>
                 <button id="create-pod-btn">Create Study Group</button>
             </div>
+            <script>
+                document.getElementById("create-pod-btn").addEventListener("click", function() {
+                    // Redirect to Flask route
+                    window.location.href = "/creat_grp";
+                });
+            </script>
     
             <!-- Search Teammates Block -->
             <div class="dashboard-block">

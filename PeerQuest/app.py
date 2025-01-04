@@ -1,14 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import sqlite3
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gd.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = '0123456789'
 
 # Initialize SQLAlchemy
-from models import db, User
+from models import *
 db.init_app(app)
 
 # Dummy data for demonstration
@@ -90,6 +91,24 @@ def dashboard():
         return redirect(url_for('login'))
     user = session['username']
     return render_template("dashboard.html", username=user, pods=user_pods)
+
+@app.route('/creat_grp',methods=['GET', 'POST'])
+def creat_grp():
+    if request.method=='POST':
+        group_name=request.form['grp_name']
+        user1 = request.form['user1']
+        user2 = request.form['user2']
+        user3 = request.form['user3']
+        user4 = request.form['user4']
+        user5 = request.form['user5']
+        new_grp = stgrp(name=group_name, user1=user1,user2=user2,user3=user3,user4=user4,user5=user5 )
+
+        db.session.add(new_grp)
+        db.session.commit()
+        flash('Registrated new group!', 'success')
+        return redirect(url_for('dashboard'))
+    return render_template('creat_grp.html')
+
 
 
 

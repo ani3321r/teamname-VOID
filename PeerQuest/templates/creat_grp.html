@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="{{url_for('creat_grp')}}">
+                <label for="grp_name">group name:</label>
+                <input type="text" id="grp_name" name="grp_name" required>
+                
+                <label for="user1">User1:</label>
+                <input type="text" id="user1" name="user1" required>
+                
+                <label for="user2">user2:</label>
+                <input type="text" id="user2" name="user2" >
+
+                <label for="user3">User3:</label>
+                <input type="text" id="user3" name="user3" >
+                
+                <label for="user4">user4:</label>
+                <input type="text" id="user4" name="user4" >
+
+                <label for="user5">User5:</label>
+                <input type="text" id="user5" name="user5" >
+                
+                <button type="submit">Register</button>
+            
+    </form>
+</body>
+</html>
