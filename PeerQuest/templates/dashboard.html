@@ -1,30 +1,54 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<nav>
+    <div class="logo">PeerQUEST</div>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Logout</a></li>
+    </ul>
+</nav>
 <div class="dashboard">
-    <div class="side-panel">
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Pods</a></li>
-            <li><a href="#">Leaderboard</a></li>
-            <li><a href="#">Battles</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <h1>Welcome, {{ username }}</h1>
-        <h3>Your Pods:</h3>
-        <ul>
-            {% for pod in pods %}
-            <li>
-                <strong>{{ pod.name }}</strong> - Role: {{ pod.role }} - Progress: {{ pod.progress }}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h2>WELCOME, {{ username }}</h2>
+        <div class="dashboard-blocks">
+            <!-- Skill Block -->
+            <div class="dashboard-block">
+                <h3>Skill Section</h3>
+                <p>Track your skills and progress here.</p>
+                <button id="skill-track-btn">View Skills</button>
+            </div>
+    
+            <!-- Create Pod Block -->
+            <div class="dashboard-block">
+                <h3>Create Pod</h3>
+                <button id="create-pod-btn">Create Study Group</button>
+            </div>
+    
+            <!-- Search Teammates Block -->
+            <div class="dashboard-block">
+                <h3>Search Teammates</h3>
+                <input type="text" id="search-teammate" placeholder="Enter teammate username" />
+                <button id="search-btn">Search/Add</button>
+            </div>
+    
+            <!-- Game Section Block -->
+            <div class="dashboard-block">
+                <h3>Game Section</h3>
+                <button id="start-game-btn">Start Game</button>
+            </div>
+    
+            <!-- Role Block -->
+            <div class="dashboard-block">
+                <h3>Your Role</h3>
+                <p>Selected Role: </p>
+                <select class="role-selector">
+                    <option value="researcher">Researcher</option>
+                    <option value="explainer">Explainer</option>
+                    <option value="challenger">Challenger</option>
+                    <option value="moderator">Moderator</option>
+                    <option value="innovator">Innovator</option>
+                </select>
+            </div>
+        </div>
 </div>
 {% endblock %}
