@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vid.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="search">
+    <form method="POST" action="{{url_for('vid')}}">
+        <input type="text" name="search" placeholder="enter your topic ">
+        <button type="submit">go</button>
+    </form>
+    </div>
+    {% if videos %}
+    <div class="videos">
+        {% for v in videos %}
+        <p>{{ v['title'] }}</p>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="{{v['video_url']}}"
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>

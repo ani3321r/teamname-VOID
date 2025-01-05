@@ -1,0 +1,75 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background: url("https://i.pinimg.com/236x/14/99/31/149931deed82e538bccacfacc1cadd81.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.game-container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    border: 5px solid #00ffcc;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+canvas {
+    background: black;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    color: #00ffcc;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff4444;
+    font-size: 40px;
+    text-align: center;
+    display: none; /* Initially hidden */
+}
+
+.game-over button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #ff4444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.game-over button:hover {
+    background-color: #ff6666;
+}

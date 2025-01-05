@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skills</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skills-style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="skills-container">
+        <div class="skills-sidebar">
+            <h2 class="top-role"></h2>
+            <div class="roles-list" id="rolesList">
+                </div>
+                <form action="{{ url_for('vid') }}" method="get">
+                    <button type="submit" class="watch-videos-btn">Watch Videos</button>
+                </form>
+        </div>
+
+        <div class="skills-main">
+            <div class="skills-grid" id="skillsGrid">
+                </div>
+        </div>
+    </div>
+
+    <script src="static/js/skills.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* Global styles */
+body {
+  font-family: 'Press Start 2P', cursive;
+  color: #0f60b6;
+  margin: 0;
+  padding: 0;
+  background: #15181d url("https://i.pinimg.com/736x/a5/a1/5c/a5a15c48bf661c4af0f1e7b093dd50dd.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Search form styles */
+.search {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.search form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid #cfa80b;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.search input[type="text"]:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+}
+
+.search button {
+  padding: 10px 20px;
+  background-color: #cfa80b;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #15181d;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.search button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+}
+
+/* Videos section styles */
+.videos {
+  margin: 20px auto; /* Center the videos section */
+  padding: 20px;
+  max-width: 900px; /* Restrict maximum width for better readability */
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid #0c3d71;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  text-align: center; /* Center the titles and other text */
+}
+
+.videos h2 {
+  text-shadow: 0 0 5px #358ae5;
+  margin-bottom: 20px;
+}
+
+.videos p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 3px #0c3d71;
+}
+
+iframe {
+  width: 80%; /* Increase the width */
+  height: 450px; /* Increase the height */
+  display: block; /* Make it a block element */
+  margin: 20px auto; /* Center the iframe */
+  border: 2px solid #cfa80b;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+iframe:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
+}

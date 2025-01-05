@@ -32,7 +32,6 @@ user_pods = [
 
 
 
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -92,31 +91,69 @@ def dashboard():
     user = session['username']
     return render_template("dashboard.html", username=user, pods=user_pods)
 
-@app.route('/creat_grp',methods=['GET', 'POST'])
+@app.route('/creat_grp', methods=['GET', 'POST'])
 def creat_grp():
-    if request.method=='POST':
-        group_name=request.form['grp_name']
-        user1 = request.form['user1']
-        user2 = request.form['user2']
-        user3 = request.form['user3']
-        user4 = request.form['user4']
-        user5 = request.form['user5']
-        new_grp = stgrp(name=group_name, user1=user1,user2=user2,user3=user3,user4=user4,user5=user5 )
+    if request.method == 'POST':
+        group_name = request.form.get('grp_name')
+        num_players = int(request.form.get('num_players', 1))  # Default to 1
+
+        # Retrieve user fields dynamically
+        users = [request.form.get(f'user{i}', None) for i in range(1, num_players + 1)]
+
+        # Fill the remaining fields with defaults (if fewer than 5 players)
+        while len(users) < 5:
+            users.append(None)
+
+        new_grp = stgrp(
+            name=group_name,
+            user1=users[0], user2=users[1],
+            user3=users[2], user4=users[3], user5=users[4]
+        )
 
         db.session.add(new_grp)
         db.session.commit()
-        flash('Registrated new group!', 'success')
+        flash('Registered new group!', 'success')
         return redirect(url_for('dashboard'))
+
     return render_template('creat_grp.html')
+
 
 @app.route('/space_shooter')
 def space_shooter():
     return render_template("space_shooter.html")
 
 
+from googleapiclient.discovery import build
+def fetch_youtube_videos(api_key, query, max_results=10):
+    youtube = build('youtube', 'v3', developerKey=api_key)
+    request = youtube.search().list(
+        part="snippet",
+        q=query,
+        type="video",
+        maxResults=max_results
+    )
+    response = request.execute()
+    videos = []
+    for item in response.get('items', []):
+        videos.append({
+            'title': item['snippet']['title'],
+            #'thumbnail': item['snippet']['thumbnails']['high']['url'],
+            'video_url': f"https://www.youtube.com/embed/{item['id']['videoId']}"
+        })
+    return videos
+@app.route('/vid',methods=['GET','POST'])
+def vid():
+    if request.method=='POST':
+        search=request.form['search']
+        API_KEY = "AIzaSyBoRs5EvF3_Zn8X5j0ebz1mpWojq-CWGkI"
+        QUERY = search
+        videos = fetch_youtube_videos(API_KEY, QUERY)
+        return render_template('vid.html', videos=videos)
+    return render_template('vid.html')
 
-
-
+@app.route('/skills')
+def skills():
+    return render_template("skills.html")
 
 
 

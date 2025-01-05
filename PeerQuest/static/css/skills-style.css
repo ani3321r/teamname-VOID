@@ -1,0 +1,147 @@
+/* Specific styles for the Skills page */
+.skills-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Press Start 2P', cursive;
+    color: #0f60b6;
+}
+
+.skills-sidebar {
+    background-color: #000;
+    width: 25%;
+    padding: 20px;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.skills-main {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #15181d url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7f9df498798819.5ee41a9374001.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.top-role {
+    text-shadow: 0 0 5px #358ae5;
+    margin-bottom: 20px;
+}
+
+.roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.role-box {
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid #0c3d71;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgb(253, 224, 2);
+}
+
+.role-name {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  text-shadow: 0 0 3px #0c3d71;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #e6cc08;
+  width: 0%; /* Initial width */
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Styles for the skill boxes in the main section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.skill-box {
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid #cfa80b;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.skill-box:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+}
+
+.skill-name {
+  margin-top: 0;
+  text-shadow: 0 0 5px #0bb7f6;
+  font-size: 1.2em;
+}
+
+.skill-info {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.progress-meter {
+  width: 100%;
+  height: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative; /* For 3D effect */
+}
+
+.progress-meter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #cfa80b;
+  width: 0%; /* Initial width */
+  transition: width 0.5s ease-in-out;
+}
+
+.watch-videos-btn {
+  background-color: #0f60b6;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.watch-videos-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}

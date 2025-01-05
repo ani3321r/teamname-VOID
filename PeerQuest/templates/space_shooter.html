@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/space_shooter.css') }}">
     <title>Space Shooter</title>
-    <style>
-        canvas {
-            display: block;
-            margin: 0 auto;
-            background: black;
-        }
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-    </style>
 </head>
 <body>
-    <canvas id="gameCanvas"></canvas>
+    <div class="game-container">
+        <div class="overlay">
+            <p>Score: <span id="score">0</span></p>
+            <p>Lives: <span id="lives">3</span></p>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-over">
+            <p>Game Over</p>
+            <p>Score: <span id="final-score">0</span></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
     <script src="static/js/game.js"></script>
 </body>
 </html>
